@@ -1,0 +1,26 @@
+name: Cypress-Test-Report
+
+on:
+  push:
+    branches:
+      - main  # This triggers the workflow on push events to the main branch
+
+jobs:
+  cypress-test:
+    name: Run on Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Install cypress and verify
+        run: |
+          npm ci
+          $(npm bin)/cypress verify
+      - name: Run Cypress tests
+        run: npm test
+        continue-on-error: true
