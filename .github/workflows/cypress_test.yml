@@ -1,0 +1,20 @@
+name: Cypress-Test-Report
+
+on:
+  workflow_dispatch:  # This allows manual triggering from the UI
+
+jobs:
+  cypress-test:
+    name: Run on Chrome 83
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node12.18.0-chrome83-ff77
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install cypress and verify
+        run: |
+          npm ci
+          $(npm bin)/cypress verify
+      - name: Run Cypress tests
+        run: npm test
+        continue-on-error: true
