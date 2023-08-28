@@ -1,7 +1,7 @@
 name: Cypress-Test-Report
 
 on:
-  workflow_dispatch:  # This allows manual triggering from the UI
+  workflow_dispatch:  # This allows manual triggering from the UI else we can use on   push: branches:main for triggerig on push
 
 jobs:
   cypress-test:
@@ -16,4 +16,4 @@ jobs:
           npm i --save
       - name: Run Cypress tests
         run: npm test
-        continue-on-error: true
+        continue-on-error: false
