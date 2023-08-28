@@ -30,7 +30,7 @@ describe('Verifying User Registration Form UI Validations', () => {
 
 describe('Verifying Login Method and Validations', () => {
     it('Verifying Login Functionality', () => {
-        //Navigate to the website URL
+        //Navigate to the website URL, PS--> we can also use the command file for custom login fucntion but here I am taking dynamic value via random function
 
         cy.visit(Cypress.config('baseUrl'))
         //Click on the login button
