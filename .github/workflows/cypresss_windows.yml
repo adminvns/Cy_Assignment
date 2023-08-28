@@ -17,6 +17,11 @@ jobs:
         with:
           node-version: '14'  # Use the latest Node.js version
 
+      - name: Install latest Chrome
+        run: |
+          choco install googlechrome --yes --force
+          RefreshEnv.cmd
+          
       - name: Install cypress and verify
         run: |
           npm i --save
