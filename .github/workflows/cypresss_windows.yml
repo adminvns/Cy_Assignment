@@ -19,7 +19,7 @@ jobs:
 
       - name: Install cypress and verify
         run: |
-          npm ci
+          npm i --save
       - name: Run Cypress tests
         run: npm test
         continue-on-error: true
